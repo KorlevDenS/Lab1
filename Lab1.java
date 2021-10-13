@@ -1,6 +1,6 @@
 public class Lab1 {
-    static long[] a ;
-    static  float[] x ;
+    static long[] a;
+    static  float[] x;
 
     public static void main(String[] args) {
         a = makeArray1(7,19);
@@ -9,12 +9,7 @@ public class Lab1 {
     }
 
     public static long[] makeArray1(long from, long to){
-        int count = 0;
-        for (long i = from; i <= to; i++) {
-            if (i % 2 != 0) {
-                count++;
-            }
-        }
+        int count = (int) ((to/2 + to % 2) - (from - 1)/2 + (from - 1) % 2);
         long[] array = new long[count];
         for (int i = 0; i < count; i++) {
             array[i] = to;
@@ -33,7 +28,7 @@ public class Lab1 {
 
     public static float getRandomNumber() {
         float rand;
-        rand = (float) (Math.random()*10 -2);
+        rand = (float) (Math.random() * 10 - 2);
         return rand;
     }
 
@@ -41,7 +36,7 @@ public class Lab1 {
         double[][] matrix = new double[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                matrix[i][j] = getAnswer(a[i], x[j]) ;
+                matrix[i][j] = getAnswer(a[i], x[j]);
             }
         }
         return matrix;
@@ -52,7 +47,7 @@ public class Lab1 {
         if (i == 17) {
             X = formula1(j);
         } else {
-            if ((i == 7)||(i == 15)||(i == 19)) {
+            if ((i == 7) || (i == 15) || (i == 19)) {
                 X = formula2(j);
             } else {
                 X = formula3(j);
@@ -63,28 +58,28 @@ public class Lab1 {
 
     public static double formula1(double X) {
         double degree, number, result;
-        number = (3*Math.cos(Math.sin(X)))/(1-Math.sin(Math.log(Math.abs(X))));
-        degree = Math.log(Math.pow((Math.abs(X)/(2*Math.PI)),2));
+        number = (3 * Math.cos(Math.sin(X)))/(1 - Math.sin(Math.log(Math.abs(X))));
+        degree = Math.log(Math.pow((Math.abs(X)/(2 * Math.PI)), 2));
         result = Math.pow(number, degree);
         return result;
     }
 
     public static double formula2(double X) {
         double result;
-        result = Math.cos(Math.cbrt(X/(double)3));
+        result = Math.cos(Math.cbrt(X/(double) 3));
         return result;
     }
 
     public static double formula3(double X) {
         double number, degree, result;
-        number = (Math.atan(Math.E * Math.cbrt(-Math.acos(Math.E*(X+3)+1))))/(double) 4;
+        number = (Math.atan(Math.E * Math.cbrt(-Math.acos(Math.E*(X + 3) + 1))))/(double) 4;
         degree = (2 / (double)3)/(3/(double)4 - Math.cbrt(Math.pow(X,X)));
         result = Math.pow(number, degree);
         return result;
     }
 
     public static void printResults() {
-        double[][] a = makeMatrix(7,15);
+        double[][] a = makeMatrix(7, 15);
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[0].length; j++) {
                 System.out.printf("%.2f", a[i][j]);
