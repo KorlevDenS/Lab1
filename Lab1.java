@@ -3,12 +3,12 @@ public class Lab1 {
     static  float[] x;
 
     public static void main(String[] args) {
-        a = makeArray1(7,19);
-        x = makeArray2(15);
+        a = makeArrayFromAtoB(7,19);
+        x = makeArrayOfAmount(15);
         printResults();
     }
 
-    public static long[] makeArray1(long from, long to){
+    public static long[] makeArrayFromAtoB(long from, long to){
         int count = (int) ((to/2 + to % 2) - (from - 1)/2 + (from - 1) % 2);
         long[] array = new long[count];
         for (int i = 0; i < count; i++) {
@@ -18,7 +18,7 @@ public class Lab1 {
         return array;
     }
 
-    public static float[] makeArray2(int amount) {
+    public static float[] makeArrayOfAmount(int amount) {
         float[] array = new float[amount];
         for (int i = 0; i < amount; i++) {
             array[i] = getRandomNumber();
